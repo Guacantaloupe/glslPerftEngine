@@ -1,3 +1,5 @@
+This project uses the GPU to accelerate chess move generation. While implementing it, I discovered a bug in NVIDIA's GLSL compiler (bug 6630275) that produced false 'array out of bounds' errors. I reported it to NVIDIA with a minimal reproducing case; they confirmed and fixed it. This repository contains the workaround version. The project is not a complete chess AI—it's a GPU Perft engine that counts legal move sequences at high speed.
+
 GLSL Chess — GPU Frontier Perft (NVIDIA Compiler Workaround)
 An experimental GPU-accelerated chess move-generation and Perft project written in C++ and GLSL 4.30, using OpenGL 4.3 compute shaders, shader storage buffer objects (SSBOs), and a native Win32 chessboard interface.
 While attempting to implement a minimax search for my HCE (hand-crafted evaluation function), I decided to try using GLSL—only to run into a bug in the NVIDIA compiler. This code is a version that bypasses that bug.
